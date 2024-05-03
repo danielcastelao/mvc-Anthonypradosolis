@@ -10,6 +10,7 @@ public class Model {
         coche.setMatricula(matricula);
         coche.setModelo(modelo);
         coche.setVelocidad(velocidad);
+        parking.add(new Coche(coche.getMatricula(), coche.getModelo(),coche.getVelocidad()));
         return coche;
     }
 }
