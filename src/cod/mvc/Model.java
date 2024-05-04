@@ -25,4 +25,11 @@ public class Model {
             coche.setVelocidad(nuevaVelocidad);
         }
     }
+    public int getVelocidad(String matricula) {
+        Coche coche = getCoche(matricula);
+        if (coche != null) {
+            return coche.getVelocidad();
+        }
+        return -1;
+    }
 }
