@@ -18,12 +18,15 @@ public class View {
         this.panel = new JPanel(new GridLayout(0, 1));
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.add(panel);
+        this.frame.setLocationRelativeTo(null);
     }
     public void displayVelocity(Coche coche) {
         System.out.println("La velocidad del coche con matrícula " + coche.getMatricula() + " es: " + coche.getVelocidad());
     }
 
     public void crearMandos(Coche coche, ActionListener acelerarHandler, ActionListener frenarHandler) {
+        acelerarButton = new JButton("Acelerar"+coche.getMatricula());
+        frenarButton = new JButton("Frenar"+coche.getMatricula());
         acelerarButton.addActionListener(acelerarHandler);
         frenarButton.addActionListener(frenarHandler);
 
