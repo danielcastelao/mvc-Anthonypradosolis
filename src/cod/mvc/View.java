@@ -19,10 +19,13 @@ public class View {
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.add(panel);
     }
+    public void displayVelocity(Coche coche) {
+        System.out.println("La velocidad del coche con matrícula " + coche.getMatricula() + " es: " + coche.getVelocidad());
+    }
 
-    public void crearMandos(Coche coche) {
-        acelerarButton = new JButton("Acelerar " + coche.getMatricula());
-        frenarButton = new JButton("Frenar " + coche.getMatricula());
+    public void crearMandos(Coche coche, ActionListener acelerarHandler, ActionListener frenarHandler) {
+        acelerarButton.addActionListener(acelerarHandler);
+        frenarButton.addActionListener(frenarHandler);
 
         acelerarButton.addActionListener(new ActionListener() {
             @Override
@@ -43,6 +46,7 @@ public class View {
                 }
             }
         });
+
 
         panel.add(acelerarButton);
         panel.add(frenarButton);
