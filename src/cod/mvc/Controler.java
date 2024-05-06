@@ -8,13 +8,13 @@ public class Controler {
         Model model = new Model();
         View view = new View(model);
 
-        Coche coche = model.crearCoche("1111-ABC", "Toyota", 120);
+        Coche coche = Model.crearCoche("1111-ABC", "Toyota", 120);
 
         ActionListener acelerarHandler = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int velocidadActual = coche.getVelocidad();
-                coche.setVelocidad(velocidadActual + 10);
+                int velocidadActual = Model.getVelocidad(coche.getMatricula());
+                Model.cambiarVelocidad(coche.getMatricula(), velocidadActual + 10);
                 view.displayVelocity(coche);
             }
         };
@@ -22,11 +22,11 @@ public class Controler {
         ActionListener frenarHandler = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int velocidadActual = coche.getVelocidad();
+                int velocidadActual = Model.getVelocidad(coche.getMatricula());
                 if (velocidadActual >= 10) {
-                    coche.setVelocidad(velocidadActual - 10);
+                    Model.cambiarVelocidad(coche.getMatricula(), velocidadActual - 10);
                 } else {
-                    coche.setVelocidad(0);
+                    Model.cambiarVelocidad(coche.getMatricula(), 0);
                 }
                 view.displayVelocity(coche);
             }
@@ -35,7 +35,7 @@ public class Controler {
         view.crearMandos(coche, acelerarHandler, frenarHandler);
 
         view.displayVelocity(coche);
-        model.cambiarVelocidad("1111-ABC", 150);
+        Model.cambiarVelocidad("1111-ABC", 150);
         view.displayVelocity(coche);
     }
 }
