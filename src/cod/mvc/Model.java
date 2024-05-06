@@ -44,6 +44,12 @@ public class Model {
             coche.setVelocidad(nuevaVelocidad);
         }
     }
+
+    /**
+     * Metodo para devolver la Velocidad
+     * @param matricula del coche
+     * @return velocidad
+     */
     public static int getVelocidad(String matricula) {
         Coche coche = getCoche(matricula);
         if (coche != null) {
