@@ -6,6 +6,13 @@ public class Model {
     static ArrayList<Coche> parking = new ArrayList<>();
     static Coche coche;
 
+    /**
+     * Metodo para crear Coches
+     * @param matricula del coche
+     * @param modelo del coche
+     * @param velocidad del coche
+     * @return devolvemos un coche
+     */
     public static Coche crearCoche(String matricula, String modelo, int velocidad){
         coche = new Coche(matricula,modelo,velocidad);
         parking.add(coche);
