@@ -32,6 +32,12 @@ public class Model {
         }
         return null;
     }
+
+    /**
+     * Metodo para cambiar la velocidad
+     * @param matricula del coche
+     * @param nuevaVelocidad nueva velovidad
+     */
     public static void cambiarVelocidad(String matricula, int nuevaVelocidad) {
         Coche coche = getCoche(matricula);
         if (coche != null) {
