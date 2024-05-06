@@ -18,6 +18,12 @@ public class Model {
         parking.add(coche);
         return coche;
     }
+
+    /**
+     * Metodo devolver Coche
+     * @param matricula del coche
+     * @return coche
+     */
     public static Coche getCoche(String matricula) {
         for (Coche coche : parking) {
             if (coche.getMatricula().equals(matricula)) {
