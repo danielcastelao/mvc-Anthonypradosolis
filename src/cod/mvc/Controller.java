@@ -1,9 +1,6 @@
 package cod.mvc;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class Controler {
+public class Controller {
     public static void main(String[] args) {
         Model model = new Model();
 //        View view = new View(model);
