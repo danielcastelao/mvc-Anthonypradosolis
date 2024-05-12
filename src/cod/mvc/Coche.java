@@ -14,11 +14,6 @@ public class Coche {
     public String getModelo() {
         return modelo;
     }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public int getVelocidad() {
         return velocidad;
     }
@@ -29,9 +24,5 @@ public class Coche {
 
     public String getMatricula() {
         return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 }
