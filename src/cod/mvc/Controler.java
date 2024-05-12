@@ -37,7 +37,8 @@ public class Controler {
 //        view.printVelocidad(coche);
 //        model.cambiarVelocidad("1111-ABC", 150);
 //        view.printVelocidad(coche);
-
+        View view = new View();
+        view.printVelocidad(coche);
 
 
 
