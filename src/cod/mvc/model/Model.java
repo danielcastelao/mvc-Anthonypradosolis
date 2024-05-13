@@ -1,10 +1,32 @@
 package cod.mvc.model;
 
+import cod.mvc.controller.Observer;
+
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements Observable {
     static ArrayList<Coche> parking = new ArrayList<>();
     static Coche coche;
+
+
+    // para los observadores
+    private static final ArrayList<Observer> observers = new ArrayList<Observer>();
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(Coche coche) {
+        for (Observer observer : observers) {
+            observer.update(coche);
+        }
+    }
 
     /**
      * Metodo para crear Coches
@@ -38,11 +60,13 @@ public class Model {
      * @param matricula del coche
      * @param nuevaVelocidad nueva velovidad
      */
-    public static void cambiarVelocidad(String matricula, int nuevaVelocidad) {
-        Coche coche = getCoche(matricula);
-        if (coche != null) {
-            coche.setVelocidad(nuevaVelocidad);
-        }
+    public  void cambiarVelocidad(String matricula, int nuevaVelocidad) {
+        getCoche(matricula).velocidad = nuevaVelocidad;
+//        Coche coche = getCoche(matricula);
+        notifyObservers(coche);
+//        if (coche != null) {
+//            coche.setVelocidad(nuevaVelocidad);
+//        }
     }
 
     /**
