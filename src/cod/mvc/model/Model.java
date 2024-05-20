@@ -32,11 +32,10 @@ public class Model implements Observable {
      * Metodo para crear Coches
      * @param matricula del coche
      * @param modelo del coche
-     * @param velocidad del coche
      * @return devolvemos un coche
      */
-    public static Coche crearCoche(String matricula, String modelo, int velocidad){
-        coche = new Coche(matricula,modelo,velocidad);
+    public static Coche crearCoche(String matricula, String modelo){
+        coche = new Coche(matricula,modelo);
         parking.add(coche);
         return coche;
     }
@@ -74,11 +73,8 @@ public class Model implements Observable {
      * @param matricula del coche
      * @return velocidad
      */
-    public static int getVelocidad(String matricula) {
-        Coche coche = getCoche(matricula);
-        if (coche != null) {
-            return coche.getVelocidad();
-        }
-        return -1;
+
+    public Integer getVelocidad(String matricula) {
+        return getCoche(matricula).velocidad;
     }
 }
