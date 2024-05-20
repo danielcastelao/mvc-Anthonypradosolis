@@ -3,6 +3,10 @@ package cod.mvc.view;
 import cod.mvc.model.Coche;
 
 public class View {
+    public static boolean muestraVelocidad(String matricula, Integer v){
+        System.out.println("[View] " + matricula + ": " + v + "km/hr");
+        return true;
+    }
 //    private Model model;
 //    private JFrame frame;
 //    private JPanel panel;
