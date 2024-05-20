@@ -46,12 +46,13 @@ public class Model implements Observable {
      * @return coche
      */
     public static Coche getCoche(String matricula) {
-        for (Coche coche : parking) {
-            if (coche.getMatricula().equals(matricula)) {
-                return coche;
+        Coche coche = null;
+        for (Coche e : parking) {
+            if (e.getMatricula().equals(matricula)) {
+                coche= e;
             }
         }
-        return null;
+        return coche;
     }
 
     /**
