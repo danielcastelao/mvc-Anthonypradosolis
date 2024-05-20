@@ -3,12 +3,12 @@ package cod.mvc.model;
 public class Coche {
     public String matricula;
     public String modelo;
-    public int velocidad;
+    public Integer velocidad;
 
-    public Coche(String matricula, String modelo, int velocidad) {
+    public Coche(String matricula, String modelo) {
         this.matricula = matricula;
         this.modelo = modelo;
-        this.velocidad = velocidad;
+        this.velocidad = 0;
     }
 
     public String getModelo() {
