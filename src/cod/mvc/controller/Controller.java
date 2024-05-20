@@ -5,6 +5,7 @@ import cod.mvc.model.Model;
 import cod.mvc.view.View;
 
 public class Controller {
+
     // definimos la instancia del modelo
     private final Model miModel;
 
@@ -42,34 +43,6 @@ public class Controller {
     public void cambiarVelocidad(String matricula, Integer velocidad){
         miModel.cambiarVelocidad(matricula, velocidad);
     }
-//        View view = new View(model);
 
-//
-//        ActionListener acelerarHandler = new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                coche.setVelocidad(velocidadActual + 10);
-//                view.printVelocidad(coche);
-//            }
-//        };
 
-//        ActionListener frenarHandler = new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                if (velocidadActual >= 10) {
-//                    coche.setVelocidad(velocidadActual - 10);
-//                } else {
-//                    coche.setVelocidad(0);
-//                }
-//                view.printVelocidad(coche);
-//            }
-//        };
-//
-//        view.crearMandos(coche, acelerarHandler, frenarHandler);
-//
-//        view.printVelocidad(coche);
-//        model.cambiarVelocidad("1111-ABC", 150);
-//        view.printVelocidad(coche);
 }

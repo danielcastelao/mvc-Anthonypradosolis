@@ -21,9 +21,7 @@ public class View {
 //        this.frame.add(panel);
 //        this.frame.setLocationRelativeTo(null);
 //    }
-    public void printVelocidad(Coche coche) {
-        System.out.println("La velocidad del coche con matrícula " + coche.getMatricula() + " es: " + coche.getVelocidad());
-    }
+
 //
 //    public void crearMandos(Coche coche, ActionListener acelerarHandler, ActionListener frenarHandler) {
 //        acelerarButton = new JButton("Acelerar"+coche.getMatricula());
