@@ -1,5 +1,6 @@
 package cod.mvc.controller;
 import cod.mvc.model.Coche;
+import cod.mvc.model.Model;
 import cod.mvc.view.View;
 public class ObserverVelocidad implements Observer{
     /**
@@ -10,7 +11,7 @@ public class ObserverVelocidad implements Observer{
      * @param arg el argumento pasado por el observable, el coche actualizado
      */
     @Override
-    public void update(Coche arg) {
+    public void update(Coche arg, Model model) {
         System.out.println("[ObserverVelocidad] Se ha cambiado la velocidad: " + arg.velocidad.toString() + "km/hr");
         // le comunicamos a la vista que muestre la velocidad
         View.muestraVelocidad(arg.matricula, arg.velocidad);

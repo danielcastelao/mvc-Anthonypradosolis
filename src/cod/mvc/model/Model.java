@@ -20,9 +20,9 @@ public class Model implements Observable {
     }
 
     @Override
-    public void notifyObservers(Coche coche) {
+    public void notifyObservers(Coche coche,Model model) {
         for (Observer observer : observers) {
-            observer.update(coche);
+            observer.update(coche,model);
         }
     }
 
@@ -60,7 +60,7 @@ public class Model implements Observable {
      */
     public  void cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
         getCoche(matricula).velocidad = nuevaVelocidad;
-        notifyObservers(getCoche(matricula));
+        notifyObservers(getCoche(matricula),this);
 
 //        Coche coche = getCoche(matricula);
 //        if (coche != null) {

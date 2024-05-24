@@ -1,5 +1,6 @@
 package cod.mvc.controller;
  import cod.mvc.model.Coche;
+ import cod.mvc.model.Model;
  import cod.mvc.model.Observable;
 
 /**
@@ -14,11 +15,12 @@ public class ObserverLimite implements Observer {
      * @param coche Coche al que se le actualizó la velocidad
      */
     @Override
-    public void update(Coche coche) {
+    public void update(Coche coche, Model model) {
         // verificamos veloidad máxima
         if (coche.velocidad > LIMITE) {
-            // avisamos de una infracción
             System.out.println("[ObserverLimite] INFRACCION");
+            model.cambiarVelocidad(coche.matricula, coche.velocidad-10);
+            // avisamos de una infracción
         }
     }
 }
