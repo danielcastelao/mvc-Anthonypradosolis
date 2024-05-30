@@ -2,6 +2,7 @@ package cod.mvc;
 
 import cod.mvc.controller.Controller;
 import cod.mvc.model.Model;
+import cod.mvc.view.View;
 
 /**
  * Clase principal de la aplicación
@@ -27,6 +28,8 @@ public class App {
         // otro cambio de velocidad
         // sobrepasando la velocidad máxima
         miController.cambiarVelocidad("HYU 4567", 150);
+        View.crearVentana();
+        System.out.println("[App] fin del main");
 
     }
 }
