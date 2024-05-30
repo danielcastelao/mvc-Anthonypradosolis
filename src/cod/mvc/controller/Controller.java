@@ -31,8 +31,14 @@ public class Controller {
      * @param nombre del coche
      * @param matricula del coche
      */
-    public void crearCoche(String nombre, String matricula){
+    public  void crearCoche(String nombre, String matricula){
         miModel.crearCoche(nombre, matricula);
+//        Coche aux = Model.crearCoche(nombre, matricula);
+//        // muestra la velocidad del coche creado
+//        if(aux!= null){
+//            View.mostrarVelocidad(aux.matricula, aux.velocidad);
+//        }
+//        //TODO mandar mensaje de error si no fue posible crear el coche
     }
 
     /**
@@ -40,9 +46,13 @@ public class Controller {
      * @param matricula del coche
      * @param velocidad nueva
      */
-    public void cambiarVelocidad(String matricula, Integer velocidad){
+    public  void  cambiarVelocidad(String matricula, Integer velocidad) {
         miModel.cambiarVelocidad(matricula, velocidad);
+//        Integer v_aux = Model.cambiarVelocidad(matricula, velocidad);
+//        if (v_aux != null) {
+//            View.mostrarVelocidad(matricula, v_aux);
+//        }
+//        //TODO mandar mensaje de error si no fue posible cambiar la velocidad
+
     }
-
-
 }
