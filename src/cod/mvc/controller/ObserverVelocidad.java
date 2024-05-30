@@ -14,7 +14,7 @@ public class ObserverVelocidad implements Observer{
     public void update(Coche arg, Model model) {
         System.out.println("[ObserverVelocidad] Se ha cambiado la velocidad: " + arg.velocidad.toString() + "km/hr");
         // le comunicamos a la vista que muestre la velocidad
-        View.muestraVelocidad(arg.matricula, arg.velocidad);
+        View.mostrarVelocidad(arg.matricula, arg.velocidad);
 
         // tambien tenemos acceso al observable en este método,
         // es decir el com.cod.mvc.model.Model

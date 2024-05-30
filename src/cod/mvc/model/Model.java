@@ -58,9 +58,10 @@ public class Model implements Observable {
      * @param matricula del coche
      * @param nuevaVelocidad nueva velovidad
      */
-    public  void cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
+    public static   Integer cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
         getCoche(matricula).velocidad = nuevaVelocidad;
-        notifyObservers(getCoche(matricula),this);
+        return getCoche(matricula).velocidad;
+//        notifyObservers(getCoche(matricula),this);
 
 //        Coche coche = getCoche(matricula);
 //        if (coche != null) {
@@ -74,7 +75,7 @@ public class Model implements Observable {
      * @return velocidad
      */
 
-    public Integer getVelocidad(String matricula) {
+    public static Integer getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
     }
 }
