@@ -3,37 +3,36 @@ import cod.mvc.model.Model;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ModelTest {
-
+public class TestsModel {
     @Test
     public void testCrearCoche() {
-        Coche coche = Model.crearCoche("1111-ABC", "Toyota", 120);
+        Coche coche = Model.crearCoche("1111-ABC", "Toyota");
         assertNotNull(coche);
         assertEquals("1111-ABC", coche.getMatricula());
         assertEquals("Toyota", coche.getModelo());
-        assertEquals(120, coche.getVelocidad());
     }
 
     @Test
     public void testGetCoche() {
-        Model.crearCoche("1111-ABC", "Toyota", 120);
+        Model.crearCoche("1111-ABC", "Toyota");
         Coche coche = Model.getCoche("1111-ABC");
         assertNotNull(coche);
         assertEquals("1111-ABC", coche.getMatricula());
         assertEquals("Toyota", coche.getModelo());
-        assertEquals(120, coche.getVelocidad());
     }
 
     @Test
     public void testCambiarVelocidad() {
-        Model.crearCoche("1111-ABC", "Toyota", 120);
+        Model.crearCoche("1111-ABC", "Toyota");
         Model.cambiarVelocidad("1111-ABC", 150);
-        assertEquals(150, Model.getVelocidad("1111-ABC"));
+        Coche coche = Model.getCoche("1111-ABC");
+        assertEquals(150, coche.getVelocidad());
     }
 
     @Test
     public void testGetVelocidad() {
-        Model.crearCoche("1111-ABC", "Toyota", 120);
-        assertEquals(120, Model.getVelocidad("1111-ABC"));
+        Model.crearCoche("1111-ABC", "Toyota");
+        Coche coche = Model.getCoche("1111-ABC");
+        assertEquals(0, coche.getVelocidad()); // Assuming new cars start with 0 speed
     }
 }
