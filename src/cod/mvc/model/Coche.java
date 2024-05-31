@@ -1,28 +1,37 @@
 package cod.mvc.model;
 
 public class Coche {
-    private String matricula;
-    private String modelo;
-    private int velocidad;
+    public String matricula;
+    public String modelo;
+    public Integer velocidad;
 
-    public Coche(String matricula, String modelo, int velocidad) {
-        this.matricula = matricula;
+    public Coche(String modelo, String matricula) {
         this.modelo = modelo;
-        this.velocidad = velocidad;
+        this.matricula = matricula;
+        this.velocidad = 0;
     }
 
     public String getModelo() {
         return modelo;
     }
-    public int getVelocidad() {
-        return velocidad;
-    }
 
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getMatricula() {
         return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public Integer getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(Integer velocidad) {
+        this.velocidad = velocidad;
     }
 }

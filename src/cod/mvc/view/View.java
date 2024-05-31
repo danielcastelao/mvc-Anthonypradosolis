@@ -1,55 +1,44 @@
 package cod.mvc.view;
 
-import cod.mvc.model.Coche;
+import javax.swing.*;
 
+/**
+ * Entorno gráfico
+ */
 public class View {
-//    private Model model;
-//    private JFrame frame;
-//    private JPanel panel;
-//    private JButton acelerarButton;
-//    private JButton frenarButton;
 
-//    public View(Model model) {
-//        this.model = model;
-//        this.frame = new JFrame("Controlador de Coche");
-//        this.panel = new JPanel(new GridLayout(0, 1));
-//        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        this.frame.add(panel);
-//        this.frame.setLocationRelativeTo(null);
-//    }
-    public void printVelocidad(Coche coche) {
-        System.out.println("La velocidad del coche con matrícula " + coche.getMatricula() + " es: " + coche.getVelocidad());
+    // inicializamos elementos del entorno gráfico
+    // Botonera es un JPanel que contiene los elementos para cambiar la velocidad
+    static JPanel botonera = Botonera.crearBotonera();
+
+    /**
+     * Inicializamos el entorno gráfico
+     */
+    public static void crearVentana() {
+        IU.crearVentana(botonera);
     }
-//
-//    public void crearMandos(Coche coche, ActionListener acelerarHandler, ActionListener frenarHandler) {
-//        acelerarButton = new JButton("Acelerar"+coche.getMatricula());
-//        frenarButton = new JButton("Frenar"+coche.getMatricula());
-//        acelerarButton.addActionListener(acelerarHandler);
-//        frenarButton.addActionListener(frenarHandler);
-//
-//        acelerarButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                coche.setVelocidad(velocidadActual + 10);
-//            }
-//        });
-//
-//        frenarButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                if (velocidadActual >= 10) {
-//                    coche.setVelocidad(velocidadActual - 10);
-//                } else {
-//                    coche.setVelocidad(0);
-//                }
-//            }
-//        });
-//
-//        panel.add(acelerarButton);
-//        panel.add(frenarButton);
-//        frame.pack();
-//        frame.setVisible(true);
-//    }
+    public static void iniciarBotonera(){
+        botonera = Botonera.crearBotonera();
+    }
+
+    /**
+     * Muestra la velocidad
+     * @param matricula del coche
+     * @param v velocidad que queremos mostrar
+     * @return true si todo bien
+     */
+    public static boolean mostrarVelocidad(String matricula, Integer v){
+        // modificamos interfaz gráfica
+        botonera.setBorder(BorderFactory.createTitledBorder("Mostrando velocidad de " + matricula));
+
+        String mensaje = "Coche " + matricula + " velocidad: " + v + "km/h";
+        // debug
+        System.out.println("[View] " + mensaje);
+
+        Dialog.mostrarMensaje(mensaje);
+
+        // Volvemos a poner el titulo de la botonera
+        botonera.setBorder(BorderFactory.createTitledBorder("Cambiar velocidad"));
+        return true;
+    }
 }

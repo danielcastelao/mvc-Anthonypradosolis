@@ -5,43 +5,64 @@ import cod.mvc.model.Model;
 import cod.mvc.view.View;
 
 public class Controller {
-    public static void main(String[] args) {
-        Model model = new Model();
-//        View view = new View(model);
 
-        Coche coche = model.crearCoche("1111-ABC", "Toyota", 120);
-//
-//        ActionListener acelerarHandler = new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                coche.setVelocidad(velocidadActual + 10);
-//                view.printVelocidad(coche);
-//            }
-//        };
+    // definimos la instancia del modelo
+    private final Model miModel;
 
-//        ActionListener frenarHandler = new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                int velocidadActual = coche.getVelocidad();
-//                if (velocidadActual >= 10) {
-//                    coche.setVelocidad(velocidadActual - 10);
-//                } else {
-//                    coche.setVelocidad(0);
-//                }
-//                view.printVelocidad(coche);
-//            }
-//        };
-//
-//        view.crearMandos(coche, acelerarHandler, frenarHandler);
-//
-//        view.printVelocidad(coche);
-//        model.cambiarVelocidad("1111-ABC", 150);
-//        view.printVelocidad(coche);
-        View view = new View();
-        view.printVelocidad(coche);
+    /**
+     * Constructor. Inicializamos el controller
+     * Creamos los observadores que necesitamos
+     * @param miModel
+     */
+    public Controller(Model miModel){
+        this.miModel = miModel;
 
+        // instanciamos al observador de la velocidad
+        ObserverVelocidad observoVelocidad = new ObserverVelocidad();
+        miModel.addObserver(observoVelocidad);
 
+        // instanciamos un segundo observador para el limite de velocidad
+        ObserverLimite observoLimite = new ObserverLimite();
+        miModel.addObserver(observoLimite);
+    }
+
+    /**
+     * Crea un coche
+     * @param nombre del coche
+     * @param matricula del coche
+     */
+    public  void crearCoche(String nombre, String matricula){
+        miModel.crearCoche(nombre, matricula);
+//        Coche aux = Model.crearCoche(nombre, matricula);
+//        // muestra la velocidad del coche creado
+//        if(aux!= null){
+//            View.mostrarVelocidad(aux.matricula, aux.velocidad);
+//        }
+//        //TODO mandar mensaje de error si no fue posible crear el coche
+    }
+
+    /**
+     * Cambia la velocidad de un coche
+     * @param matricula del coche
+     * @param velocidad nueva
+     */
+    public  void  cambiarVelocidad(String matricula, Integer velocidad) {
+        miModel.cambiarVelocidad(matricula, velocidad);
+//        Integer v_aux = Model.cambiarVelocidad(matricula, velocidad);
+//        if (v_aux != null) {
+//            View.mostrarVelocidad(matricula, v_aux);
+//        }
+//        //TODO mandar mensaje de error si no fue posible cambiar la velocidad
+
+    }
+
+    /**
+     * Metodo para Buscar y mostramos los datos de coche
+     * @param matricula del coche
+     * @return datos
+     */
+    public Coche buscarYMostrarCoche(String matricula) {
+        return miModel.buscarCoche(matricula);
 
     }
 }
