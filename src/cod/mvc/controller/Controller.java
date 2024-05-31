@@ -55,4 +55,14 @@ public class Controller {
 //        //TODO mandar mensaje de error si no fue posible cambiar la velocidad
 
     }
+
+    /**
+     * Metodo para Buscar y mostramos los datos de coche
+     * @param matricula del coche
+     * @return datos
+     */
+    public Coche buscarYMostrarCoche(String matricula) {
+        return miModel.buscarCoche(matricula);
+
+    }
 }
