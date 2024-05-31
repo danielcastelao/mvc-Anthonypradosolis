@@ -9,6 +9,16 @@ public class Model implements Observable {
     static Coche coche;
     // para los observadores
     private static final ArrayList<Observer> observers = new ArrayList<Observer>();
+    private static Model instance = null;
+
+    private Model() {
+    }
+    public static Model getInstance() {
+        if (instance == null) {
+            instance = new Model();
+        }
+        return instance;
+    }
 
     @Override
     public void addObserver(Observer observer) {
@@ -77,5 +87,14 @@ public class Model implements Observable {
 
     public static Integer getVelocidad(String matricula) {
         return getCoche(matricula).velocidad;
+    }
+
+    /**
+     * Metodo de buscar coche
+     * @param matricula del coche
+     * @return matricula
+     */
+    public Coche buscarCoche(String matricula){
+        return getCoche(matricula);
     }
 }
