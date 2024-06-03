@@ -30,9 +30,18 @@ public class TestsModel {
     }
 
     @Test
-    void testCambiarVelocidad() {
+    void testSubirVelocidad() {
         model.crearCoche("LaFerrari", "1234ABC");
-        model.cambiarVelocidad("1234ABC", 180);
+        model.subirVelocidad("1234ABC", 200);
+        Integer velocidad = model.getVelocidad("1234ABC");
+        assertEquals(200, velocidad);
+    }
+
+    @Test
+    void testBajarVelocidad() {
+        model.crearCoche("LaFerrari", "1234ABC");
+        model.subirVelocidad("1234ABC", 200);
+        model.bajarVelocidad("1234ABC", 20);
         Integer velocidad = model.getVelocidad("1234ABC");
         assertEquals(180, velocidad);
     }
