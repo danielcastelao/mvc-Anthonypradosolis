@@ -1,18 +1,85 @@
-# README
+# README SUBIR Y BAJAR VELOCIDAD
 
-Lo primero que hacemos es hacer git branch ex3Busca y luego hacemos git checkout ex3Busca
+Lo primero que hicimos fue modificar el metodo cambiarVelocidad 
 
-Lo segundo es hacer los dos issues pertinentes
+Para esto creamos dos nuevos metodos, llamados subirVelocidad y bajarVelocidad
 
-Lo tercero que tengo que hacer es modificar y crear el singleton en la clase Model
-Tambien cree un nuevo metodo llamado buscarCoche
+Con este cambio tenemos que modificar el controller, el ObserverLimite y el ObserverVelocidad
 
-Lo cuarto que hice fue la creacion de un nuevo metodo llamado buscarYMostrarCoche en la clase Controller
+Al hacer estos cambios tambien modifico la View
 
-Lo quinto fue crear un metodo en la clase App llamado buscarYMostrarCoche donde llama al metodo buscarYMostrarCoche de la clase Controller
+Por ultimo modifico el test de TestsModel debido a que implementamos dos nuevos metodos
 
-Lo sexto fue que en la clase App tambien tenemos que instanciar la clase Controller pero utilizando la instancia de la clase Model que en este caso el el singleton
+Finalmente realizamos el diagrama de clases y el diagrama de secuencia en la aplicacion de mermaid
 
-Lo septimo fue crear los commits de cada issue pertinente, utilizando la nomenclatura de close # numero del issue que quieres cerrar
+# Diagrama de clases
 
-Creamos el pull Request y por ultimo creamos este readme.
+<br>classDiagram
+<br>class Coche {
+<br>String: matricula
+<br>String: modelo
+<br>Integer: velocidad
+<br>}
+<br>class Controller{
+<br>+main()
+<br>}
+<br>class View {
+<br>+mostrarCambioVelocidad(String, Integer, String)
+<br>}
+<br>class Model {
+<br>ArrayList~Coche~: parking
+<br>+crearCoche(String, String)
+<br>+getCoche(String)
+<br>+subirVelocidad(String, Integer)
+<br>+bajarVelocidad(String, Integer)
+<br>+getVelocidad(String)
+<br>}
+<br>Controller "1" *-- "1" Model : association
+<br>Controller "1" *-- "1" View : association
+<br>Model "1" *-- "1..n" Coche : association
+
+# Diagrama de secuencia
+
+sequenceDiagram
+<br>participant App
+<br>participant Controller
+<br>participant Model
+<br>participant View
+<br>App->>Controller: new Controller(new Model())
+<br>activate Controller
+<br>Controller->>Model: crearCoche("LaFerrari", "SBC 1234")
+<br>activate Model
+<br>Model-->>Controller: Coche
+<br>deactivate Model
+<br>Controller->>Model: crearCoche("Alpine", "HYU 4567")
+<br>activate Model
+<br>Model-->>Controller: Coche
+<br>deactivate Model
+<br>Controller->>Model: crearCoche("Aston Martin", "FGH 3333")
+<br>activate Model
+<br>Model-->>Controller: Coche
+<br>deactivate Model
+<br>Controller->>Model: subirVelocidad("SBC 1234", 30)
+<br>activate Model
+<br>Model-->>Controller: void
+<br>deactivate Model
+<br>Controller->>View: mostrarCambioVelocidad("SBC 1234", 30, "incrementada")
+<br>activate View
+<br>View-->>Controller: void
+<br>deactivate View
+<br>Controller->>Model: bajarVelocidad("HYU 4567", 150)
+<br>activate Model
+<br>Model-->>Controller: void
+<br>deactivate Model
+<br>Controller->>View: mostrarCambioVelocidad("HYU 4567", 150, "disminuida")
+<br>activate View
+<br>View-->>Controller: void
+<br>deactivate View
+<br>Controller->>Model: subirVelocidad("HYU 4567", 20)
+<br>activate Model
+<br>Model-->>Controller: void
+<br>deactivate Model
+<br>Controller->>View: mostrarCambioVelocidad("HYU 4567", 20, "incrementada")
+<br>activate View
+<br>View-->>Controller: void
+<br>deactivate View
