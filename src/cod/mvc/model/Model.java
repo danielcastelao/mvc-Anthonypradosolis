@@ -77,16 +77,16 @@ public class Model implements Observable {
             View.mostrarCambioVelocidad(matricula,v,"subida");
         }
     }
-//    public static void bajarVelocidad(String matricula,Integer v){
-//        Coche coche = getCoche(matricula);
-//        if(coche != null){
-//            coche.velocidad -= v;
-//            if(coche.velocidad < 0){
-//                coche.velocidad = 0;
-//            }
-//            View.mostrarCambioVelocidad(matricula,v,"bajada");
-//        }
-//    }
+    public static void bajarVelocidad(String matricula,Integer v){
+        Coche coche = getCoche(matricula);
+        if(coche != null){
+            coche.velocidad -= v;
+            if(coche.velocidad < 0){
+                coche.velocidad = 0;
+            }
+            View.mostrarCambioVelocidad(matricula,v,"bajada");
+        }
+    }
 
     /**
      * Metodo para devolver la Velocidad
