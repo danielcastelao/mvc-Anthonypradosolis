@@ -31,7 +31,7 @@ public class IU {
                 /**
                  * Creamos un nuevo controlador
                  */
-                Controller miController = new Controller(new Model());
+                Controller miController = new Controller(Model.getInstance());
                 /**
                  * Creamos un coche
                  */

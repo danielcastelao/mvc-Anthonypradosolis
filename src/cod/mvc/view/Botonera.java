@@ -26,7 +26,7 @@ public class Botonera {
             /**
              * Creamos un nuevo controlador
              */
-            Controller miController = new Controller(new Model());
+            Controller miController = new Controller( Model.getInstance());
             /**
              * Cambiamos la velocidad
              */
