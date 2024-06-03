@@ -55,21 +55,11 @@ public class Model implements Observable {
         return coche;
     }
 
-//    /**
-//     * Metodo para cambiar la velocidad
-//     * @param matricula del coche
-//     * @param nuevaVelocidad nueva velovidad
-//     */
-//    public static   Integer cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
-//        getCoche(matricula).velocidad = nuevaVelocidad;
-//        return getCoche(matricula).velocidad;
-////        notifyObservers(getCoche(matricula),this);
-//
-////        Coche coche = getCoche(matricula);
-////        if (coche != null) {
-////            coche.setVelocidad(nuevaVelocidad);
-////        }
-//    }
+    /**
+     * Metodo para subir la velocidad
+     * @param matricula del coche
+     * @param v velocidad
+     */
     public static void subirVelocidad(String matricula,Integer v){
         Coche coche = getCoche(matricula);
         if(coche != null){
@@ -77,6 +67,11 @@ public class Model implements Observable {
             View.mostrarCambioVelocidad(matricula,v,"subida");
         }
     }
+    /**
+     * Metodo para bajar la velocidad
+     * @param matricula del coche
+     * @param v velocidad
+     */
     public static void bajarVelocidad(String matricula,Integer v){
         Coche coche = getCoche(matricula);
         if(coche != null){
