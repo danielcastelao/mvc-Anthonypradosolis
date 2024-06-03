@@ -1,6 +1,7 @@
 package cod.mvc.model;
 
 import cod.mvc.controller.Observer;
+import cod.mvc.view.View;
 
 import java.util.ArrayList;
 
@@ -9,16 +10,7 @@ public class Model implements Observable {
     static Coche coche;
     // para los observadores
     private static final ArrayList<Observer> observers = new ArrayList<Observer>();
-    private static Model instance = null;
 
-    private Model() {
-    }
-    public static Model getInstance() {
-        if (instance == null) {
-            instance = new Model();
-        }
-        return instance;
-    }
 
     @Override
     public void addObserver(Observer observer) {
@@ -63,21 +55,38 @@ public class Model implements Observable {
         return coche;
     }
 
-    /**
-     * Metodo para cambiar la velocidad
-     * @param matricula del coche
-     * @param nuevaVelocidad nueva velovidad
-     */
-    public static   Integer cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
-        getCoche(matricula).velocidad = nuevaVelocidad;
-        return getCoche(matricula).velocidad;
-//        notifyObservers(getCoche(matricula),this);
-
-//        Coche coche = getCoche(matricula);
-//        if (coche != null) {
-//            coche.setVelocidad(nuevaVelocidad);
-//        }
+//    /**
+//     * Metodo para cambiar la velocidad
+//     * @param matricula del coche
+//     * @param nuevaVelocidad nueva velovidad
+//     */
+//    public static   Integer cambiarVelocidad(String matricula, Integer nuevaVelocidad) {
+//        getCoche(matricula).velocidad = nuevaVelocidad;
+//        return getCoche(matricula).velocidad;
+////        notifyObservers(getCoche(matricula),this);
+//
+////        Coche coche = getCoche(matricula);
+////        if (coche != null) {
+////            coche.setVelocidad(nuevaVelocidad);
+////        }
+//    }
+    public static void subirVelocidad(String matricula,Integer v){
+        Coche coche = getCoche(matricula);
+        if(coche != null){
+            coche.velocidad += v;
+            View.mostrarCambioVelocidad(matricula,v,"subida");
+        }
     }
+//    public static void bajarVelocidad(String matricula,Integer v){
+//        Coche coche = getCoche(matricula);
+//        if(coche != null){
+//            coche.velocidad -= v;
+//            if(coche.velocidad < 0){
+//                coche.velocidad = 0;
+//            }
+//            View.mostrarCambioVelocidad(matricula,v,"bajada");
+//        }
+//    }
 
     /**
      * Metodo para devolver la Velocidad
