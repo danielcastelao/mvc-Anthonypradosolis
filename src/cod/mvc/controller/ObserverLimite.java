@@ -19,7 +19,7 @@ public class ObserverLimite implements Observer {
         // verificamos veloidad máxima
         if (coche.velocidad > LIMITE) {
             System.out.println("[ObserverLimite] INFRACCION");
-            model.cambiarVelocidad(coche.matricula, coche.velocidad-10);
+            model.bajarVelocidad(coche.matricula, 10);
             // avisamos de una infracción
         }
     }

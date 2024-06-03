@@ -41,20 +41,28 @@ public class Controller {
 //        //TODO mandar mensaje de error si no fue posible crear el coche
     }
 
-    /**
-     * Cambia la velocidad de un coche
-     * @param matricula del coche
-     * @param velocidad nueva
-     */
-    public  void  cambiarVelocidad(String matricula, Integer velocidad) {
-        miModel.cambiarVelocidad(matricula, velocidad);
-//        Integer v_aux = Model.cambiarVelocidad(matricula, velocidad);
-//        if (v_aux != null) {
-//            View.mostrarVelocidad(matricula, v_aux);
-//        }
-//        //TODO mandar mensaje de error si no fue posible cambiar la velocidad
+//    /**
+//     * Cambia la velocidad de un coche
+//     * @param matricula del coche
+//     * @param velocidad nueva
+//     */
+//    public  void  cambiarVelocidad(String matricula, Integer velocidad) {
+//        miModel.cambiarVelocidad(matricula, velocidad);
+////        Integer v_aux = Model.cambiarVelocidad(matricula, velocidad);
+////        if (v_aux != null) {
+////            View.mostrarVelocidad(matricula, v_aux);
+////        }
+////        //TODO mandar mensaje de error si no fue posible cambiar la velocidad
+//
+//    }
 
+    public void subirVelocidad(String matricula, Integer v){
+        miModel.subirVelocidad(matricula,v);
     }
+    public void bajarVelocidad(String matricula,Integer v){
+        miModel.bajarVelocidad(matricula,v);
+    }
+
 
     /**
      * Metodo para Buscar y mostramos los datos de coche
